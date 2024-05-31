@@ -21,7 +21,7 @@ async function verifyTag() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'API-KEY': 'GMS6N9H0YCLPAJSMDUNYKTGJ27IP2AT65HLLMWKRKTFX1HCNFMESCJXEFNQ6O6HH' // Correct API key
+                'API-KEY': 'GMS6N9H0YCLPAJSMDUNYKTGJ27IP2AT65HLLMWKRKTFX1HCNFMESCJXEFNQ6O6HH' // Public API key
             },
             body: payload
         });
