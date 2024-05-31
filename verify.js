@@ -18,7 +18,7 @@ async function verifyTag() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'API-KEY': 'DUNYKTGJ27IP2AT65HLLMWKRKTFX1HCNFMESCJXEFNQ6O6HH' // Replace with your public API key
+                'API-KEY': 'GMS6N9H0YCLPAJSMDUNYKTGJ27IP2AT65HLLMWKRKTFX1HCNFMESCJXEFNQ6O6HH' // Replace with your public API key
             },
             body: JSON.stringify({ tagId, eCode, enc, cmac })
         });
