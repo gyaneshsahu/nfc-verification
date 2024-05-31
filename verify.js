@@ -13,6 +13,9 @@ console.log('cmac:', cmac);
 
 // Function to verify the tag
 async function verifyTag() {
+    const payload = JSON.stringify({ tagId, eCode, enc, cmac });
+    console.log('Payload:', payload); // Log payload for debugging
+
     try {
         const response = await fetch('https://third-party.etrnl.app/v1/tags/verify-authenticity', {
             method: 'POST',
@@ -20,7 +23,7 @@ async function verifyTag() {
                 'Content-Type': 'application/json',
                 'API-KEY': 'GMS6N9H0YCLPAJSMDUNYKTGJ27IP2AT65HLLMWKRKTFX1HCNFMESCJXEFNQ6O6HH' // Correct API key
             },
-            body: JSON.stringify({ tagId, eCode, enc, cmac })
+            body: payload
         });
 
         if (!response.ok) {
