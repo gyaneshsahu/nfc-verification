@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#status {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.checkmark {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: none;
+    margin: 0 auto;
+}
+
+.checkmark-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    animation: circle-animation 0.5s ease-in-out;
+}
+
+.checkmark-stem {
+    position: absolute;
+    width: 5px;
+    height: 30px;
+    background-color: #fff;
+    top: 25%;
+    left: 48%;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    animation: stem-animation 0.5s ease-in-out 0.5s forwards;
+}
+
+.checkmark-kick {
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    background-color: #fff;
+    top: 50%;
+    left: 48%;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    animation: kick-animation 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes circle-animation {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+@keyframes stem-animation {
+    from { height: 0; }
+    to { height: 30px; }
+}
+
+@keyframes kick-animation {
+    from { height: 0; }
+    to { height: 10px; }
+}
