@@ -34,6 +34,7 @@ async function verifyTag() {
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
             document.getElementById('status').innerText = 'Tag Verified!';
+            document.getElementById('checkmark').style.display = 'block';
         } else {
             document.getElementById('status').innerText = 'Verification Failed!';
         }
