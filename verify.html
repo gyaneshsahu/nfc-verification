@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tag Verification</title>
- 
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-        <div id="status">Verifying...</div>
-      
+    <div class="container">
+        <div id="status" class="status">Verifying...</div>
+        <div class="checkmark" id="checkmark">
+            <div class="checkmark-circle"></div>
+            <div class="checkmark-stem"></div>
+            <div class="checkmark-kick"></div>
+        </div>
+        <div class="cross" id="cross">
+            <div class="cross-line1"></div>
+            <div class="cross-line2"></div>
+        </div>
+    </div>
     <script src="verify.js"></script>
 </body>
 </html>
