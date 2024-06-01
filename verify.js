@@ -35,21 +35,35 @@ async function verifyTag() {
         if (result.success && result.authentic) {
             document.getElementById('status').innerText = 'Tag Verified!';
             document.getElementById('status').style.color = '#4CAF50';
-            document.getElementById('checkmark').style.display = 'block';
-            document.getElementById('cross').style.display = 'none';
+            showIcon('checkmark');
+            hideIcon('cross');
         } else {
             document.getElementById('status').innerText = 'Verification Failed!';
             document.getElementById('status').style.color = '#f44336';
-            document.getElementById('checkmark').style.display = 'none';
-            document.getElementById('cross').style.display = 'block';
+            showIcon('cross');
+            hideIcon('checkmark');
         }
     } catch (error) {
         console.error('Error:', error); // Log error for debugging
         document.getElementById('status').innerText = 'Verification Failed!';
         document.getElementById('status').style.color = '#f44336';
-        document.getElementById('checkmark').style.display = 'none';
-        document.getElementById('cross').style.display = 'block';
+        showIcon('cross');
+        hideIcon('checkmark');
     }
+}
+
+// Function to show an icon with animation
+function showIcon(id) {
+    const icon = document.getElementById(id);
+    icon.classList.remove('hide');
+    icon.classList.add('show');
+}
+
+// Function to hide an icon with animation
+function hideIcon(id) {
+    const icon = document.getElementById(id);
+    icon.classList.remove('show');
+    icon.classList.add('hide');
 }
 
 // Call the verify function
