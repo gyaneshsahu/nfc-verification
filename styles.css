@@ -1,120 +1,45 @@
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-header h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-main {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
 }
 
 .container {
-    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
     border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
     text-align: center;
 }
 
-.status {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.checkmark, .cross {
-    width: 80px;
-    height: 80px;
+.status-box {
     position: relative;
+}
+
+.status-icon {
+    font-size: 100px;
     display: none;
-    margin: 20px auto;
+    margin-bottom: 20px;
 }
 
-.checkmark-circle, .cross-line1, .cross-line2 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #4CAF50;
-    animation: circle-animation 0.5s ease-in-out;
+.checkmark {
+    color: #4CAF50;
 }
 
-.checkmark-stem, .checkmark-kick {
-    position: absolute;
-    width: 5px;
-    height: 30px;
-    background-color: #fff;
-    top: 25%;
-    left: 48%;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
-    animation: stem-animation 0.5s ease-in-out 0.5s forwards;
+.cross {
+    color: #f44336;
 }
 
-.checkmark-kick {
-    height: 10px;
-    top: 50%;
-    transform: rotate(-45deg);
-    transform-origin: top left;
-    animation: kick-animation 0.5s ease-in-out 1s forwards;
-}
-
-.cross-line1, .cross-line2 {
-    position: absolute;
-    width: 5px;
-    height: 100%;
-    background-color: #f44336;
-    top: 0;
-    left: 50%;
-    transform-origin: center;
-    animation: cross-animation 0.5s ease-in-out forwards;
-}
-
-.cross-line1 {
-    transform: rotate(45deg);
-}
-
-.cross-line2 {
-    transform: rotate(-45deg);
-}
-
-@keyframes circle-animation {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
-}
-
-@keyframes stem-animation {
-    from { height: 0; }
-    to { height: 30px; }
-}
-
-@keyframes kick-animation {
-    from { height: 0; }
-    to { height: 10px; }
-}
-
-@keyframes cross-animation {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
+#status {
+    font-size: 24px;
+    margin: 0;
 }
