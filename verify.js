@@ -36,15 +36,18 @@ async function verifyTag() {
             document.getElementById('status').innerText = 'Tag Verified!';
             document.getElementById('status').style.color = '#4CAF50';
             document.getElementById('checkmark').style.display = 'block';
+            document.getElementById('cross').style.display = 'none';
         } else {
             document.getElementById('status').innerText = 'Verification Failed!';
             document.getElementById('status').style.color = '#f44336';
+            document.getElementById('checkmark').style.display = 'none';
             document.getElementById('cross').style.display = 'block';
         }
     } catch (error) {
         console.error('Error:', error); // Log error for debugging
         document.getElementById('status').innerText = 'Verification Failed!';
         document.getElementById('status').style.color = '#f44336';
+        document.getElementById('checkmark').style.display = 'none';
         document.getElementById('cross').style.display = 'block';
     }
 }
