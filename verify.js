@@ -34,12 +34,18 @@ async function verifyTag() {
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
             document.getElementById('status').innerText = 'Tag Verified!';
+            document.getElementById('status').style.color = '#4CAF50';
+            document.getElementById('checkmark').style.display = 'block';
         } else {
             document.getElementById('status').innerText = 'Verification Failed!';
+            document.getElementById('status').style.color = '#f44336';
+            document.getElementById('cross').style.display = 'block';
         }
     } catch (error) {
         console.error('Error:', error); // Log error for debugging
         document.getElementById('status').innerText = 'Verification Failed!';
+        document.getElementById('status').style.color = '#f44336';
+        document.getElementById('cross').style.display = 'block';
     }
 }
 
