@@ -5,9 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url('background.jpg'); /* Ensure you have a background.jpg file or change the path accordingly */
-    background-size: cover;
-    background-position: center;
+    background-color: #333; /* Dark grey background */
 }
 
 .container {
@@ -26,7 +24,7 @@ body {
 .heading {
     font-size: 24px;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff; /* Change heading text color to white for better contrast */
 }
 
 .status-box {
@@ -53,6 +51,7 @@ body {
 #status {
     font-size: 24px;
     margin: 0;
+    color: #333; /* Set default text color for status */
 }
 
 /* Animation classes */
