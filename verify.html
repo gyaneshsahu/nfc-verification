@@ -7,23 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Tag Verification System</h1>
-    </header>
-    <main>
-        <div class="container">
-            <div id="status" class="status">Verifying...</div>
-            <div class="checkmark" id="checkmark">
-                <div class="checkmark-circle"></div>
-                <div class="checkmark-stem"></div>
-                <div class="checkmark-kick"></div>
-            </div>
-            <div class="cross" id="cross">
-                <div class="cross-line1"></div>
-                <div class="cross-line2"></div>
-            </div>
+    <div class="container">
+        <div class="status-box">
+            <div id="checkmark" class="status-icon checkmark">&#10003;</div>
+            <div id="cross" class="status-icon cross">&#10007;</div>
+            <h1 id="status">Verifying...</h1>
         </div>
-    </main>
+    </div>
     <script src="verify.js"></script>
 </body>
 </html>
