@@ -21,6 +21,12 @@ body {
     text-align: center;
 }
 
+.heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
 .status-box {
     position: relative;
 }
@@ -29,6 +35,8 @@ body {
     font-size: 100px;
     display: none;
     margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .checkmark {
@@ -42,4 +50,16 @@ body {
 #status {
     font-size: 24px;
     margin: 0;
+}
+
+/* Animation classes */
+.status-icon.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.status-icon.hide {
+    opacity: 0;
+    transform: scale(0.8);
 }
