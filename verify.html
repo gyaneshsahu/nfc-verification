@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +7,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Animation Container -->
+    <div class="animation-container">
+        <div class="box">
+            <span style="--i: 1"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 2"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 3"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 4"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 5"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 6"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 7"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 8"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 9"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 10"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 11"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 12"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 13"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 14"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 15"><i>CA</i>VO<i>PS</i></span>
+            <span style="--i: 16"><i>WE</i>CARE FOR<i>YOU</i></span>
+        </div>
+    </div>
+
+    <!-- Verification Container -->
+    <div class="verification-container">
         <h1 class="heading">Verified by CAVOPS</h1>
         <h2 class="subheading">Iberogast</h2>
-        <img src="Related-content_advance_desktop_360x360_0.avif" alt="Product Image" class="product-image">
+        <img src="https://your-image-link.com/product-image.jpg" alt="Product Image" class="product-image">
         <div class="status-box">
             <div id="checkmark" class="status-icon checkmark">&#10003;</div>
             <div id="cross" class="status-icon cross">&#10007;</div>
             <h1 id="status">Verifying...</h1>
         </div>
     </div>
+
+    <script>
+        // Display the verification container after animation
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.animation-container').style.display = 'none';
+                document.querySelector('.verification-container').style.display = 'flex';
+            }, 3000); // Duration of animation in milliseconds
+        });
+    </script>
     <script src="verify.js"></script>
 </body>
 </html>
