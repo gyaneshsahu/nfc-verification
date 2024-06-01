@@ -33,7 +33,7 @@ async function verifyTag() {
         const result = await response.json();
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
-            document.getElementById('status').innerText = 'Tag Verified!';
+            document.getElementById('status').innerText = 'Product Verified!';
             document.getElementById('status').style.color = '#4CAF50';
             showIcon('checkmark');
             hideIcon('cross');
