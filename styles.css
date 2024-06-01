@@ -5,7 +5,8 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #333; /* Dark grey background */
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
 }
 
 .container {
@@ -13,18 +14,23 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px;
     text-align: center;
 }
 
 .heading {
-    font-size: 24px;
+    font-size: 28px; /* Larger heading for Verified by CAVOPS */
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 40px; /* Subheading for Iberogast */
     margin-bottom: 20px;
-    color: #fff; /* Change heading text color to white for better contrast */
+}
+
+.product-image {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+    margin-bottom: 20px;
 }
 
 .status-box {
@@ -51,7 +57,7 @@ body {
 #status {
     font-size: 24px;
     margin: 0;
-    color: #333; /* Set default text color for status */
+    color: #fff; /* White text color for status */
 }
 
 /* Animation classes */
@@ -59,6 +65,7 @@ body {
     display: block;
     opacity: 1;
     transform: scale(1);
+    animation: rotate 2s linear infinite; /* 3D animation effect */
 }
 
 .status-icon.hide {
@@ -76,5 +83,15 @@ body {
     }
     60% {
         transform: translateY(-10px);
+    }
+}
+
+/* 3D rotation animation keyframes */
+@keyframes rotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
     }
 }
