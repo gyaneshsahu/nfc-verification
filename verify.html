@@ -32,45 +32,25 @@
     <!-- Verification Container -->
     <div class="verification-container" id="verificationContainer">
         <div class="status-box" id="statusBox">
-            <div id="checkmark" class="status-icon checkmark">&#10003;</div>
-            <div id="cross" class="status-icon cross">&#10007;</div>
+            <!-- Success Mark -->
+            <div class="wrapper success" id="successMark">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <!-- Failure Mark -->
+            <div class="wrapper failure" id="failureMark">
+                <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="crossmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="crossmark__cross" fill="none" d="M16 16 L36 36 M36 16 L16 36"/>
+                </svg>
+            </div>
             <h1 id="statusMessage"></h1>
             <h2 class="verification-subheading">Verify by CAVOPS</h2>
         </div>
     </div>
 
-    <script>
-        // Display the verification container after animation
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.querySelector('.animation-container').style.display = 'none';
-                document.querySelector('.verification-container').style.display = 'flex';
-                verifyTag(); // Call the verification function
-            }, 3000); // Duration of animation in milliseconds
-        });
-
-        // Function to verify the tag (simulated)
-        function verifyTag() {
-            // Simulate an API response
-            const isVerified = Math.random() > 0.5; // Randomly choose verification result for demonstration
-            const statusBox = document.getElementById('statusBox');
-            const statusMessage = document.getElementById('statusMessage');
-            const checkmark = document.getElementById('checkmark');
-            const cross = document.getElementById('cross');
-
-            if (isVerified) {
-                statusMessage.innerText = 'AUTHENTIC';
-                checkmark.style.display = 'block';
-                cross.style.display = 'none';
-                statusBox.classList.add('success');
-            } else {
-                statusMessage.innerText = 'INAUTHENTIC';
-                checkmark.style.display = 'none';
-                cross.style.display = 'block';
-                statusBox.classList.add('failure');
-            }
-        }
-    </script>
     <script src="verify.js"></script>
 </body>
 </html>
