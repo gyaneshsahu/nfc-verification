@@ -152,7 +152,7 @@ body {
   stroke: #fff;
   stroke-miterlimit: 10;
   margin: 10% auto;
-  box-shadow: inset 0px 0px 0px #e74c3c;
+  box-shadow: inset 0px 0px 0px #e74c3c; /* Red padding for failure */
   animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
 }
 
@@ -161,7 +161,7 @@ body {
   stroke-dashoffset: 664; /* 4 times bigger */
   stroke-width: 1; /* 4 times bigger */
   stroke-miterlimit: 10;
-  stroke: #fff;
+  stroke: #e74c3c;
   fill: none;
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
@@ -191,6 +191,18 @@ body {
 
 @keyframes fill {
   100% {
-    box-shadow: inset 0px 0px 0px 30px var(--green);
+    box-shadow: inset 0px 0px 0px 30px var(--green); /* This will be applied only for the checkmark */
   }
+}
+
+/* Product Info */
+#productInfo {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#productInfo img {
+  width: 100px;
+  height: auto;
+  margin-top: 10px;
 }
