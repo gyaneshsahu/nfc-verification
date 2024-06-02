@@ -33,7 +33,7 @@ async function verifyTag() {
         const result = await response.json();
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
-            showVerificationResult(true, result);
+            showVerificationResult(true, result.productName, result.productImage);
         } else {
             showVerificationResult(false);
         }
@@ -44,29 +44,27 @@ async function verifyTag() {
 }
 
 // Function to display the verification result
-function showVerificationResult(isVerified, result) {
+function showVerificationResult(isVerified, productName = '', productImage = '') {
     const statusBox = document.getElementById('statusBox');
     const statusMessage = document.getElementById('statusMessage');
     const successMark = document.getElementById('successMark');
     const failureMark = document.getElementById('failureMark');
-    const productInfo = document.getElementById('productInfo');
-    const productName = document.getElementById('productName');
-    const productImage = document.getElementById('productImage');
-    const productDescription = document.getElementById('productDescription');
+    const productDetails = document.getElementById('productDetails');
+    const productNameElem = document.getElementById('productName');
+    const productImageElem = document.getElementById('productImage');
 
     if (isVerified) {
         statusMessage.innerText = 'AUTHENTIC';
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
-        productInfo.style.display = 'block';
-        productName.innerText = result.productName; // Replace with actual product name
-        productImage.src = result.productImageUrl; // Replace with actual product image URL
-        productDescription.innerText = result.productDescription; // Replace with actual product description
+        productDetails.style.display = 'block';
+        productNameElem.innerText = productName;
+        productImageElem.src = productImage;
     } else {
         statusMessage.innerText = 'INAUTHENTIC';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
-        productInfo.style.display = 'none';
+        productDetails.style.display = 'none';
     }
 }
 
