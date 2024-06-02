@@ -1,4 +1,4 @@
-// Extract URL parameters
+// Extract URL parameters (assuming this part is necessary for your verification logic)
 const url = new URL(window.location.href);
 const tagId = url.searchParams.get('tagId');
 const eCode = url.searchParams.get('eCode');
@@ -33,38 +33,41 @@ async function verifyTag() {
         const result = await response.json();
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
-            document.getElementById('status').innerText = 'Product Verified!';
-            document.getElementById('status').style.color = '#4CAF50';
-            showIcon('checkmark');
-            hideIcon('cross');
+            showVerificationResult(true);
         } else {
-            document.getElementById('status').innerText = 'Verification Failed!';
-            document.getElementById('status').style.color = '#f44336';
-            showIcon('cross');
-            hideIcon('checkmark');
+            showVerificationResult(false);
         }
     } catch (error) {
         console.error('Error:', error); // Log error for debugging
-        document.getElementById('status').innerText = 'Verification Failed!';
-        document.getElementById('status').style.color = '#f44336';
-        showIcon('cross');
-        hideIcon('checkmark');
+        showVerificationResult(false);
     }
 }
 
-// Function to show an icon with animation
-function showIcon(id) {
-    const icon = document.getElementById(id);
-    icon.classList.remove('hide');
-    icon.classList.add('show');
+// Function to display the verification result
+function showVerificationResult(isVerified) {
+    const statusBox = document.getElementById('statusBox');
+    const statusMessage = document.getElementById('statusMessage');
+    const checkmark = document.getElementById('checkmark');
+    const cross = document.getElementById('cross');
+
+    if (isVerified) {
+        statusMessage.innerText = 'AUTHENTIC';
+        checkmark.style.display = 'block';
+        cross.style.display = 'none';
+        statusBox.classList.add('success');
+    } else {
+        statusMessage.innerText = 'INAUTHENTIC';
+        checkmark.style.display = 'none';
+        cross.style.display = 'block';
+        statusBox.classList.add('failure');
+    }
 }
 
-// Function to hide an icon with animation
-function hideIcon(id) {
-    const icon = document.getElementById(id);
-    icon.classList.remove('show');
-    icon.classList.add('hide');
-}
-
-// Call the verify function
-verifyTag();
+// Call the verify function after a delay to simulate loading
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.querySelector('.animation-container').style.display = 'none';
+        document.querySelector('.verification-container').style.display = 'flex';
+        verifyTag(); // Call the verification function
+    }, 3000); // Duration of animation in milliseconds
+});
