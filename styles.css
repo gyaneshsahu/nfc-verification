@@ -22,12 +22,13 @@ select:focus, input:focus, button:focus {
 
 body {
   background-color: var(--black);
-  overflow: hidden;
+  overflow-x: hidden; /* Allow vertical scrolling */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   color: var(--white);
+  flex-direction: column; /* Allow vertical stacking of elements */
 }
 
 /* Animation Container */
@@ -92,6 +93,8 @@ body {
   text-align: center;
   padding: 20px;
   background-color: var(--black);
+  overflow-y: auto; /* Allow vertical scrolling */
+  max-height: 100vh; /* Limit the height to viewport height */
 }
 
 .status-box {
@@ -101,6 +104,7 @@ body {
   background: var(--light-grey);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 90%; /* Limit the width for better appearance */
 }
 
 .status-icon {
@@ -201,6 +205,7 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .product-details h3 {
