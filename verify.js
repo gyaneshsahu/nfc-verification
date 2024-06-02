@@ -47,19 +47,17 @@ async function verifyTag() {
 function showVerificationResult(isVerified) {
     const statusBox = document.getElementById('statusBox');
     const statusMessage = document.getElementById('statusMessage');
-    const checkmark = document.getElementById('checkmark');
-    const cross = document.getElementById('cross');
+    const successMark = document.getElementById('successMark');
+    const failureMark = document.getElementById('failureMark');
 
     if (isVerified) {
         statusMessage.innerText = 'AUTHENTIC';
-        checkmark.style.display = 'block';
-        cross.style.display = 'none';
-        statusBox.classList.add('success');
+        successMark.style.display = 'flex';
+        failureMark.style.display = 'none';
     } else {
         statusMessage.innerText = 'INAUTHENTIC';
-        checkmark.style.display = 'none';
-        cross.style.display = 'block';
-        statusBox.classList.add('failure');
+        successMark.style.display = 'none';
+        failureMark.style.display = 'flex';
     }
 }
 
