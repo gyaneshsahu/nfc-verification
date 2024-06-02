@@ -30,14 +30,12 @@
     </div>
 
     <!-- Verification Container -->
-    <div class="verification-container">
-        <h1 class="heading">Verified by CAVOPS</h1>
-        <h2 class="subheading">Iberogast</h2>
-        <img src="Related-content_advance_desktop_360x360_0.avif" alt="Product Image" class="product-image">
-        <div class="status-box">
+    <div class="verification-container" id="verificationContainer">
+        <div class="status-box" id="statusBox">
             <div id="checkmark" class="status-icon checkmark">&#10003;</div>
             <div id="cross" class="status-icon cross">&#10007;</div>
-            <h1 id="status">Verifying...</h1>
+            <h1 id="statusMessage"></h1>
+            <h2 class="verification-subheading">Verify by CAVOPS</h2>
         </div>
     </div>
 
@@ -47,8 +45,31 @@
             setTimeout(() => {
                 document.querySelector('.animation-container').style.display = 'none';
                 document.querySelector('.verification-container').style.display = 'flex';
+                verifyTag(); // Call the verification function
             }, 3000); // Duration of animation in milliseconds
         });
+
+        // Function to verify the tag (simulated)
+        function verifyTag() {
+            // Simulate an API response
+            const isVerified = Math.random() > 0.5; // Randomly choose verification result for demonstration
+            const statusBox = document.getElementById('statusBox');
+            const statusMessage = document.getElementById('statusMessage');
+            const checkmark = document.getElementById('checkmark');
+            const cross = document.getElementById('cross');
+
+            if (isVerified) {
+                statusMessage.innerText = 'AUTHENTIC';
+                checkmark.style.display = 'block';
+                cross.style.display = 'none';
+                statusBox.classList.add('success');
+            } else {
+                statusMessage.innerText = 'INAUTHENTIC';
+                checkmark.style.display = 'none';
+                cross.style.display = 'block';
+                statusBox.classList.add('failure');
+            }
+        }
     </script>
     <script src="verify.js"></script>
 </body>
