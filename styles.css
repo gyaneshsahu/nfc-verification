@@ -109,11 +109,11 @@ body {
 }
 
 .checkmark {
-  width: 56px;
-  height: 56px;
+  width: 224px; /* 4 times bigger */
+  height: 224px; /* 4 times bigger */
   border-radius: 50%;
   display: block;
-  stroke-width: 2;
+  stroke-width: 8; /* 4 times bigger */
   stroke: #fff;
   stroke-miterlimit: 10;
   margin: 10% auto;
@@ -122,9 +122,9 @@ body {
 }
 
 .checkmark__circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
+  stroke-dasharray: 664; /* 4 times bigger */
+  stroke-dashoffset: 664; /* 4 times bigger */
+  stroke-width: 8; /* 4 times bigger */
   stroke-miterlimit: 10;
   stroke: #7ac142;
   fill: none;
@@ -133,8 +133,8 @@ body {
 
 .checkmark__check {
   transform-origin: 50% 50%;
-  stroke-dasharray: 48;
-  stroke-dashoffset: 48;
+  stroke-dasharray: 192; /* 4 times bigger */
+  stroke-dashoffset: 192; /* 4 times bigger */
   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
@@ -144,11 +144,11 @@ body {
 }
 
 .crossmark {
-  width: 56px;
-  height: 56px;
+  width: 224px; /* 4 times bigger */
+  height: 224px; /* 4 times bigger */
   border-radius: 50%;
   display: block;
-  stroke-width: 2;
+  stroke-width: 8; /* 4 times bigger */
   stroke: #fff;
   stroke-miterlimit: 10;
   margin: 10% auto;
@@ -157,9 +157,9 @@ body {
 }
 
 .crossmark__circle {
-  stroke-dasharray: 166;
-  stroke-dashoffset: 166;
-  stroke-width: 2;
+  stroke-dasharray: 664; /* 4 times bigger */
+  stroke-dashoffset: 664; /* 4 times bigger */
+  stroke-width: 8; /* 4 times bigger */
   stroke-miterlimit: 10;
   stroke: #e74c3c;
   fill: none;
@@ -168,8 +168,8 @@ body {
 
 .crossmark__cross {
   transform-origin: 50% 50%;
-  stroke-dasharray: 56;
-  stroke-dashoffset: 56;
+  stroke-dasharray: 224; /* 4 times bigger */
+  stroke-dashoffset: 224; /* 4 times bigger */
   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
 }
 
