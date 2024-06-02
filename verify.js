@@ -10,6 +10,8 @@ console.log('tagId:', tagId);
 console.log('eCode:', eCode);
 console.log('enc:', enc);
 console.log('cmac:', cmac);
+console.log('url:', url);
+
 
 // Function to verify the tag
 async function verifyTag() {
