@@ -1,21 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;600&family=Poppins:wght@100;500;600;800;900&family=Lobster+Two:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600;800;900&display=swap');
 
 :root {
-  --font1: 'Poppins', sans-serif;
-  --font2: 'Lobster Two', cursive;
+  --font: 'Poppins', sans-serif;
   --white: #fff;
   --black: #000;
-  --primary-dark: #222;
-  --first-shadow: rgba(0, 0, 0, 0.3);
-  --primary-color: #5c5fc4;
-  --second-color: #c4c15c;
+  --green: #4CAF50;
+  --red: #f44336;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: var(--font1);
+  font-family: var(--font);
 }
 
 select:focus, input:focus, button:focus {
@@ -60,7 +57,7 @@ body {
   font-weight: bold;
   padding: 0px 10px;
   transform-style: preserve-3d;
-  text-shadow: 0 10px 15px var(--first-shadow);
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
 }
 
@@ -69,11 +66,11 @@ body {
 }
 
 .box span i:nth-child(1) {
-  color: var(--primary-color);
+  color: var(--green);
 }
 
 .box span i:nth-child(2) {
-  color: var(--second-color);
+  color: var(--red);
 }
 
 @keyframes animate {
@@ -94,73 +91,41 @@ body {
   text-align: center;
 }
 
-.heading {
-  font-size: 36px; /* Larger heading for Verified by CAVOPS */
-  margin-bottom: 10px;
-}
-
-.subheading {
-  font-size: 28px; /* Subheading for Iberogast */
-  margin-bottom: 20px;
-}
-
-.product-image {
-  width: 200px; /* Adjust the size as needed */
-  height: auto;
-  margin-bottom: 20px;
-}
-
 .status-box {
   position: relative;
+  text-align: center;
 }
 
 .status-icon {
-  font-size: 100px;
+  font-size: 150px;
   display: none;
   margin-bottom: 20px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  animation: bounce 1s infinite; /* Add bounce animation */
 }
 
 .checkmark {
-  color: #4CAF50;
+  color: var(--green);
 }
 
 .cross {
-  color: #f44336;
+  color: var(--red);
 }
 
-#status {
+#statusMessage {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.verification-subheading {
   font-size: 24px;
-  margin: 0;
-  color: var(--white); /* White text color for status */
+  color: var(--white);
 }
 
-/* Animation classes */
-.status-icon.show {
+.success .checkmark, .failure .cross {
   display: block;
   opacity: 1;
-  transform: scale(1);
-  animation: rotate 2s linear infinite; /* 3D animation effect */
-}
-
-.status-icon.hide {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-/* Bounce animation keyframes */
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
+  animation: rotate 2s linear infinite;
 }
 
 /* 3D rotation animation keyframes */
