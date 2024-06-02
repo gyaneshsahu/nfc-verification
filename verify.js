@@ -55,7 +55,7 @@ function showVerificationResult(isVerified) {
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
     } else {
-        statusMessage.innerText = 'INAUTHENTIC';
+        statusMessage.innerText = 'Unable to Verity';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
     }
