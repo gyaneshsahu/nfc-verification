@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;500;600;800;900&display=swap');
 
 :root {
-  --font: 'Courier New', Courier, monospace;
+  --font: 'Poppins', sans-serif;
   --white: #fff;
   --black: #000;
   --green: #4CAF50;
@@ -118,7 +118,7 @@ body {
   stroke-miterlimit: 10;
   margin: 10% auto;
   box-shadow: inset 0px 0px 0px #7ac142;
-  animation: fill-green 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
 }
 
 .checkmark__circle {
@@ -153,7 +153,7 @@ body {
   stroke-miterlimit: 10;
   margin: 10% auto;
   box-shadow: inset 0px 0px 0px #e74c3c;
-  animation: fill-red 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
 }
 
 .crossmark__circle {
@@ -161,7 +161,7 @@ body {
   stroke-dashoffset: 664; /* 4 times bigger */
   stroke-width: 1; /* 4 times bigger */
   stroke-miterlimit: 10;
-  stroke: #e74c3c;
+  stroke: #fff;
   fill: none;
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
@@ -189,14 +189,8 @@ body {
   }
 }
 
-@keyframes fill-green {
+@keyframes fill {
   100% {
     box-shadow: inset 0px 0px 0px 30px var(--green);
-  }
-}
-
-@keyframes fill-red {
-  100% {
-    box-shadow: inset 0px 0px 0px 30px var(--red);
   }
 }
