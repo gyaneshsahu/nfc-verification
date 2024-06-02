@@ -58,10 +58,10 @@ function showVerificationResult(isVerified, productName = '', productImage = '')
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
         productDetails.style.display = 'block';
-        productNameElem.innerText = 'Iberogast';
-        productImageElem.src = Related-content_advance_desktop_360x360_0.avif;
+        productNameElem.innerText = productName;
+        productImageElem.src = productImage;
     } else {
-        statusMessage.innerText = 'UBABLE TO VERIFY';
+        statusMessage.innerText = 'INAUTHENTIC';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
         productDetails.style.display = 'none';
