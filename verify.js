@@ -33,7 +33,7 @@ async function verifyTag() {
         const result = await response.json();
         console.log('API Response:', result); // Log response for debugging
         if (result.success && result.authentic) {
-            showVerificationResult(true, result.productName, result.productImage);
+            showVerificationResult(true);
         } else {
             showVerificationResult(false);
         }
@@ -44,27 +44,20 @@ async function verifyTag() {
 }
 
 // Function to display the verification result
-function showVerificationResult(isVerified, productName = '', productImage = '') {
+function showVerificationResult(isVerified) {
     const statusBox = document.getElementById('statusBox');
     const statusMessage = document.getElementById('statusMessage');
     const successMark = document.getElementById('successMark');
     const failureMark = document.getElementById('failureMark');
-    const productDetails = document.getElementById('productDetails');
-    const productNameElem = document.getElementById('productName');
-    const productImageElem = document.getElementById('productImage');
 
     if (isVerified) {
         statusMessage.innerText = 'AUTHENTIC';
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
-        productDetails.style.display = 'block';
-        productNameElem.innerText = productName;
-        productImageElem.src = productImage;
     } else {
         statusMessage.innerText = 'INAUTHENTIC';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
-        productDetails.style.display = 'none';
     }
 }
 
