@@ -223,6 +223,12 @@ body {
   font-size: 1em;
 }
 
+/* Spaced Text */
+.spaced-text {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 0.2em; /* Adjust the spacing as needed */
+}
+
 /* Animations */
 @keyframes stroke {
   100% {
