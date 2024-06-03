@@ -59,14 +59,14 @@ function showVerificationResult(isVerified) {
         failureMark.style.display = 'none';
         productImage.style.display = 'block';
         productDetails.style.display = 'block';
-        message = 'The product is authentic';
+        message = 'The product is from Iberogast. Authenticity approved';
     } else {
         statusMessage.innerText = 'UNABLE TO VERIFY';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
         productImage.style.display = 'none';
         productDetails.style.display = 'none';
-        message = 'Unable to verify the product';
+        message = 'Unable to verify the product,rescan to reverify';
     }
 
     // Speech synthesis
