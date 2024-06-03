@@ -52,19 +52,27 @@ function showVerificationResult(isVerified) {
     const productImage = document.getElementById('productImage');
     const productDetails = document.getElementById('productDetails');
 
+    let message;
     if (isVerified) {
         statusMessage.innerText = 'Verified';
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
         productImage.style.display = 'block';
         productDetails.style.display = 'block';
+        message = 'The product is authentic';
     } else {
         statusMessage.innerText = 'Unable to Verify';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
         productImage.style.display = 'none';
         productDetails.style.display = 'none';
+        message = 'Unable to verify the product';
     }
+
+    // Speech synthesis
+    const utterance = new SpeechSynthesisUtterance(message);
+    utterance.rate = 1; // Adjust the rate as needed
+    speechSynthesis.speak(utterance);
 }
 
 // Call the verify function after a delay to simulate loading
