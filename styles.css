@@ -190,6 +190,7 @@ body {
 
 /* Product Image */
 .product-image {
+  display: none; /* Initially hide */
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -203,6 +204,7 @@ body {
 
 /* Product Details */
 .product-details {
+  display: none; /* Initially hide */
   text-align: left;
   color: var(--black);
   background: var(--white);
