@@ -49,15 +49,21 @@ function showVerificationResult(isVerified) {
     const statusMessage = document.getElementById('statusMessage');
     const successMark = document.getElementById('successMark');
     const failureMark = document.getElementById('failureMark');
+    const productImage = document.getElementById('productImage');
+    const productDetails = document.getElementById('productDetails');
 
     if (isVerified) {
-        statusMessage.innerText = 'AUTHENTIC';
+        statusMessage.innerText = 'Verified';
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
+        productImage.style.display = 'block';
+        productDetails.style.display = 'block';
     } else {
         statusMessage.innerText = 'Unable to Verify';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
+        productImage.style.display = 'none';
+        productDetails.style.display = 'none';
     }
 }
 
