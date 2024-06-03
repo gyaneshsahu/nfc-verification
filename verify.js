@@ -66,7 +66,7 @@ function showVerificationResult(isVerified) {
         failureMark.style.display = 'flex';
         productImage.style.display = 'none';
         productDetails.style.display = 'none';
-        message = 'Unable to verify the product,rescan to reverify';
+        message = 'Unable to verify the product. Caution: If you see a CAVOPS verified label on the product and this message, it might be counterfeit, report this to contact@ c a v o p s.com. However, if you do not see a CAVOPS label, it does not necessarily mean the product is counterfeit. It is possible that we are not authorized to verify the product or not a licensed partner of the company.';
     }
 
     // Speech synthesis
