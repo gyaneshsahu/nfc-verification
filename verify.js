@@ -54,14 +54,14 @@ function showVerificationResult(isVerified) {
 
     let message;
     if (isVerified) {
-        statusMessage.innerText = 'Verified';
+        statusMessage.innerText = 'VERIFIED';
         successMark.style.display = 'flex';
         failureMark.style.display = 'none';
         productImage.style.display = 'block';
         productDetails.style.display = 'block';
         message = 'The product is authentic';
     } else {
-        statusMessage.innerText = 'Unable to Verify';
+        statusMessage.innerText = 'UNABLE TO VERIFY';
         successMark.style.display = 'none';
         failureMark.style.display = 'flex';
         productImage.style.display = 'none';
