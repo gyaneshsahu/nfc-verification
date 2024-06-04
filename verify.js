@@ -11,7 +11,7 @@ console.log('eCode:', eCode);
 console.log('enc:', enc);
 console.log('cmac:', cmac);
 
-// Function to verify the tag
+// Function to verify the tag and display the result
 async function verifyTag() {
     const payload = JSON.stringify({ tagId, eCode, enc, cmac });
     console.log('Payload:', payload); // Log payload for debugging
@@ -32,54 +32,29 @@ async function verifyTag() {
 
         const result = await response.json();
         console.log('API Response:', result); // Log response for debugging
-        if (result.success && result.authentic) {
-            showVerificationResult(true);
-        } else {
-            showVerificationResult(false);
-        }
+        displayVerificationResult(result);
     } catch (error) {
         console.error('Error:', error); // Log error for debugging
-        showVerificationResult(false);
+        document.getElementById('verificationResult').innerHTML = `<p>Error verifying product: ${error.message}</p>`;
     }
 }
 
 // Function to display the verification result
-function showVerificationResult(isVerified) {
-    const statusBox = document.getElementById('statusBox');
-    const statusMessage = document.getElementById('statusMessage');
-    const successMark = document.getElementById('successMark');
-    const failureMark = document.getElementById('failureMark');
-    const productImage = document.getElementById('productImage');
-    const productDetails = document.getElementById('productDetails');
+function displayVerificationResult(result) {
+    const verificationResult = document.getElementById('verificationResult');
 
-    let message;
-    if (isVerified) {
-        statusMessage.innerText = 'Verified';
-        successMark.style.display = 'flex';
-        failureMark.style.display = 'none';
-        productImage.style.display = 'block';
-        productDetails.style.display = 'block';
-        message = 'The product is authentic';
+    if (result.success && result.authentic) {
+        verificationResult.innerHTML = `
+            <h2>Product is Authentic</h2>
+            <pre>${JSON.stringify(result.product, null, 2)}</pre>
+        `;
     } else {
-        statusMessage.innerText = 'Unable to Verify';
-        successMark.style.display = 'none';
-        failureMark.style.display = 'flex';
-        productImage.style.display = 'none';
-        productDetails.style.display = 'none';
-        message = 'Unable to verify the product';
+        verificationResult.innerHTML = `
+            <h2>Unable to Verify Product</h2>
+            <pre>${JSON.stringify(result, null, 2)}</pre>
+        `;
     }
-
-    // Speech synthesis
-    const utterance = new SpeechSynthesisUtterance(message);
-    utterance.rate = 1; // Adjust the rate as needed
-    speechSynthesis.speak(utterance);
 }
 
-// Call the verify function after a delay to simulate loading
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        document.querySelector('.animation-container').style.display = 'none';
-        document.querySelector('.verification-container').style.display = 'flex';
-        verifyTag(); // Call the verification function
-    }, 3000); // Duration of animation in milliseconds
-});
+// Call the verify function when the page loads
+window.addEventListener('load', verifyTag);
