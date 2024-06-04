@@ -1,54 +1,39 @@
-document.getElementById('scan-button').addEventListener('click', async () => {
-    if ('NDEFReader' in window) {
-        try {
-            const ndef = new NDEFReader();
-            await ndef.scan();
-            ndef.onreading = event => {
-                const decoder = new TextDecoder();
-                for (const record of event.message.records) {
-                    console.log("Record type:  " + record.recordType);
-                    console.log("MIME type:    " + record.mediaType);
-                    console.log("=== data ===\n" + decoder.decode(record.data));
-                    const nfcData = decoder.decode(record.data);
-                    document.getElementById('nfc-data').textContent = nfcData;
+// Extract URL parameters
+const url = new URL(window.location.href);
+const tagId = url.searchParams.get('tagId');
+const eCode = url.searchParams.get('eCode');
+const enc = url.searchParams.get('enc');
+const cmac = url.searchParams.get('cmac');
 
-                    // Send data to server
-                    fetch('https://example.com/api/verify', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ nfcData: nfcData })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Success:', data);
-                        // Handle and display the detailed information here
-                        displayProductDetails(data);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-                }
-            };
-        } catch (error) {
-            console.error("Error reading NFC: ", error);
+// Log parameters for debugging
+console.log('tagId:', tagId);
+console.log('eCode:', eCode);
+console.log('enc:', enc);
+console.log('cmac:', cmac);
+
+// Function to verify the tag
+async function verifyTag() {
+    try {
+        const response = await fetch('https://third-party.etrnl.app/v1/tags/verify-authenticity', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'API-KEY': 'YOUR_PUBLIC_API_KEY' // Replace with your public API key
+            },
+            body: JSON.stringify({ tagId, eCode, enc, cmac })
+        });
+        const result = await response.json();
+        console.log('API Response:', result); // Log response for debugging
+        if (result.success && result.authentic) {
+            document.getElementById('status').innerText = 'Tag Verified!';
+        } else {
+            document.getElementById('status').innerText = 'Verification Failed!';
         }
-    } else {
-        alert("NFC is not supported on this device.");
-    }
-});
-
-function displayProductDetails(data) {
-    const detailsContainer = document.getElementById('product-details');
-    detailsContainer.innerHTML = ''; // Clear previous content
-
-    // Iterate over all properties in the data object
-    for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-            const detail = document.createElement('p');
-            detail.textContent = `${key}: ${data[key]}`;
-            detailsContainer.appendChild(detail);
-        }
+    } catch (error) {
+        console.error('Error:', error); // Log error for debugging
+        document.getElementById('status').innerText = 'Verification Failed!';
     }
 }
+
+// Call the verify function
+verifyTag();
