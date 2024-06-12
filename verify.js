@@ -1,4 +1,4 @@
-// Extract URL parameters (assuming this part is necessary for your verification logic)
+/* // Extract URL parameters (assuming this part is necessary for your verification logic)
 const url = new URL(window.location.href);
 const tagId = url.searchParams.get('tagId');
 const eCode = url.searchParams.get('eCode');
@@ -54,7 +54,7 @@ function displayVerificationResult(result) {
             <pre>${JSON.stringify(result, null, 2)}</pre>
         `;
     }
-}
+}*/
 
 // Call the verify function when the page loads
 window.addEventListener('load', verifyTag);
